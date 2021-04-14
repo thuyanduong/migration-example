@@ -6,12 +6,12 @@
 * Version control for you Database!
 
 ## Migration Terms
-* Migration
-* Up
-* Down
-* Migrate Latest
-* Rollback
-* Status
+* Migration (a file that changes the structure of your database)
+* Up (that migration file has been executed)
+* Down (that migration file has NOT be executed)
+* Migrate Latest (execute all migration files in order)
+* Rollback (un-executing our migration files)
+* Status (the status of the migration is whether or not it is up or down)
 
 ## Set Up
 * [Knex Documentation](http://knexjs.org/)
@@ -19,10 +19,12 @@
 * `sudo npm install -g knex` to use the knex command line tool
 * Otherwise, you'll have to type `node_modules/.bin/knex`
 * `knex init`
-    * Update your `knexfile` to the correct configurations
+    * Update your `knexfile.js` to the correct DB configurations
 
 #### Hypothetical Project
-* Users and pets!
+* V1: just have the `users` table
+* V2: add an additional table called `pets`
+* V3: add a new column to `users` table called `birthday`
 
 ## Create Migration files
 * `knex migrate:make <name-of-file>`
