@@ -1,5 +1,15 @@
 const db = require("../db/config")
 
+const getAll = async (req, res) => {
+    try{
+        const users = await db.query("SELECT * FROM users ORDER BY id").then(results => results.rows)
+        const pets = await db.query("SELECT * FROM pets ORDER BY id").then(results => results.rows)
+        res.json({users, pets})
+    }catch{
+        res.status(500).send("Error with database")
+    }
+}
+
 const getUsers = async (req, res) => {
     try{
         const users = await db.query("SELECT * FROM users ORDER BY id").then(results => results.rows)
@@ -39,6 +49,7 @@ const getPet = async (req, res) => {
 }
 
 module.exports = {
+    getAll,
     getUsers,
     getUser,
     getPets,

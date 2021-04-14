@@ -6,6 +6,8 @@ const PORT = process.env.PORT || 3000
 
 app.use(express.json());
 
+app.get("/", appController.getAll)
+
 app.get("/users", appController.getUsers)
 
 app.get("/users/:id", appController.getUser)
